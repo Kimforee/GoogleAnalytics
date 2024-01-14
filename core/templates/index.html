@@ -1,0 +1,87 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Analytics Report</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin-top: 220px;
+            margin-bottom: 220px;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px #d9d9d9, -5px -5px 15px #ffffff;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #555;
+        }
+
+        p {
+            margin: 5px 0;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Google Analytics Report</h1>
+
+        <div class="card">
+            <h2>Calls</h2>
+            <p>Count: {{ report.Calls.count }}</p>
+            <p>Percentage Change: {{ report.Calls.percentage_change }}%</p>
+        </div>
+
+        <div class="card">
+            <h2>Messages</h2>
+            <p>Count: {{ report.Messages.count }}</p>
+        </div>
+
+        <div class="card">
+            <h2>People Asked for Direction</h2>
+            <p>Count: {{ report.PeopleAskedForDirection.count }}</p>
+            <p>Percentage Change: {{ report.PeopleAskedForDirection.percentage_change }}%</p>
+        </div>
+
+        <div class="card">
+            <h2>Website Visits from Profile</h2>
+            <p>Count: {{ report.WebsiteVisitsFromProfile.count }}</p>
+            <p>Percentage Change: {{ report.WebsiteVisitsFromProfile.percentage_change }}%</p>
+        </div>
+
+        <div class="card">
+            <h2>Profile Views</h2>
+            <p>Count: {{ report.ProfileViews.count }}</p>
+            <p>Percentage Change: {{ report.ProfileViews.percentage_change }}%</p>
+        </div>
+
+        <div class="card">
+            <h2>Searches Appearance</h2>
+            <p>Count: {{ report.SearchesAppearance.count }}</p>
+            <p>Percentage Change: {{ report.SearchesAppearance.percentage_change }}%</p>
+        </div>
+    </div>
+</body>
+</html>
