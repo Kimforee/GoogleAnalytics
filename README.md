@@ -58,8 +58,3 @@ Contributions are welcome! Please follow the guidelines in [CONTRIBUTING.md](CON
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-## Acknowledgments
-
-- Inspired by the need for a simple Google Analytics dashboard for Django projects.
-
