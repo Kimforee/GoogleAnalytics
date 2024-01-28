@@ -8,22 +8,30 @@ def generate_dummy_data():
     months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
     for month in months:
-        Calls.objects.create(month=month, count=random.randint(20, 50), percentage_change=random.randint(-10, 10))
-        Messages.objects.create(month=month, count=random.randint(0, 10))
-        PeopleAskedForDirection.objects.create(month=month, count=random.randint(10, 30), percentage_change=random.randint(-20, 20))
-        WebsiteVisitsFromProfile.objects.create(month=month, count=random.randint(30, 70), percentage_change=random.randint(-30, 30))
-        ProfileViews.objects.create(month=month, count=random.randint(800, 1200), percentage_change=random.randint(50, 100))
-        SearchesAppearance.objects.create(month=month, count=random.randint(50, 150), percentage_change=random.randint(100, 300))
+        Calls.objects.create(month=month, 
+                             count=random.randint(20, 50), 
+                             percentage_change=random.randint(-10, 10))
+
+        Messages.objects.create(month=month, 
+                                count=random.randint(0, 10))
+                                
+        PeopleAskedForDirection.objects.create(month=month, 
+                                               count=random.randint(10, 30), 
+                                               percentage_change=random.randint(-20, 20))
+
+        WebsiteVisitsFromProfile.objects.create(month=month, 
+                                                count=random.randint(30, 70), 
+                                                percentage_change=random.randint(-30, 30))
+        ProfileViews.objects.create(month=month, 
+                                    count=random.randint(800, 1200), 
+                                    percentage_change=random.randint(50, 100))
+
+        SearchesAppearance.objects.create(month=month, 
+                                          count=random.randint(50, 150), 
+                                          percentage_change=random.randint(100, 300))
 
 def generate_report(month):
     report = {}
-
-    # report['Calls'] = {'count': Calls.objects.get(month=month).count, 'percentage_change': Calls.objects.get(month=month).percentage_change}
-    # report['Messages'] = {'count': Messages.objects.get(month=month).count}
-    # report['PeopleAskedForDirection'] = {'count': PeopleAskedForDirection.objects.get(month=month).count, 'percentage_change': PeopleAskedForDirection.objects.get(month=month).percentage_change}
-    # report['WebsiteVisitsFromProfile'] = {'count': WebsiteVisitsFromProfile.objects.get(month=month).count, 'percentage_change': WebsiteVisitsFromProfile.objects.get(month=month).percentage_change}
-    # report['ProfileViews'] = {'count': ProfileViews.objects.get(month=month).count, 'percentage_change': ProfileViews.objects.get(month=month).percentage_change}
-    # report['SearchesAppearance'] = {'count': SearchesAppearance.objects.get(month=month).count, 'percentage_change': SearchesAppearance.objects.get(month=month).percentage_change}
 
     # Calls
     calls_records = Calls.objects.filter(month=month)
@@ -60,7 +68,7 @@ def generate_report(month):
 
 def consolidate_report():
     # Choose the month for the report
-    report_month = 'January'  # You can change this to the desired month
+    report_month = 'January'  # change this to the desired month
 
     # Generate and populate dummy data
     generate_dummy_data()
@@ -74,5 +82,3 @@ def index(request):
     # Consolidate the report
     consolidated_report = consolidate_report()
     return render(request, 'index.html', {'report': consolidated_report})
-
-    # return JsonResponse(consolidated_report)  
